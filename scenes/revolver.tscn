@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://0jwkqtnex1d3"]
+
+[ext_resource type="Texture2D" uid="uid://bvri45a0ek7iy" path="res://assets/revolver.png" id="1_37vaw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlopr"]
+atlas = ExtResource("1_37vaw")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_844u3"]
+atlas = ExtResource("1_37vaw")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k0e7"]
+atlas = ExtResource("1_37vaw")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uolhl"]
+atlas = ExtResource("1_37vaw")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgy4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlopr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_844u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k0e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uolhl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="revolver" type="AnimatedSprite2D" unique_id=1918409889]
+sprite_frames = SubResource("SpriteFrames_xgy4w")
+
+[node name="bullet" type="Node2D" parent="." unique_id=1952672956]

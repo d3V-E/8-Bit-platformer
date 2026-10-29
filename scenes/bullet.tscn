@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cdyiftv6i0fvj"]
+
+[ext_resource type="Texture2D" uid="uid://bkg1irpwicyb2" path="res://assets/bullet.png" id="1_mkf8s"]
+
+[node name="bullet" type="Area2D" unique_id=1089814632]
+
+[node name="bullet img" type="Sprite2D" parent="." unique_id=1083772299]
+texture = ExtResource("1_mkf8s")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1817324922]
+polygon = PackedVector2Array(-2, 0, -2, -1, 1, -1, 2, 0, 1, 1, -2, 1)

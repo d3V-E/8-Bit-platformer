@@ -1,40 +1,62 @@
 [gd_scene format=3 uid="uid://yl7u2tlm7hrv"]
 
-[ext_resource type="Texture2D" uid="uid://cavl584aecckl" path="res://assets/main spritesheet.png" id="1_f6xso"]
 [ext_resource type="Script" uid="uid://m47lgw6ylerj" path="res://scripts/main_charecter.gd" id="1_nijli"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nijli"]
-atlas = ExtResource("1_f6xso")
-region = Rect2(0, 0, 16, 16)
+[ext_resource type="Texture2D" uid="uid://b4msc6cpx588h" path="res://assets/Tile1.png" id="2_nijli"]
+[ext_resource type="PackedScene" uid="uid://0jwkqtnex1d3" path="res://scenes/revolver.tscn" id="3_85dba"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85dba"]
-atlas = ExtResource("1_f6xso")
-region = Rect2(16, 0, 16, 16)
+atlas = ExtResource("2_nijli")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktxcm"]
+atlas = ExtResource("2_nijli")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyl2k"]
+atlas = ExtResource("2_nijli")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ort6r"]
+atlas = ExtResource("2_nijli")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xgy4w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nijli")
+"texture": SubResource("AtlasTexture_85dba")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_85dba")
+"texture": SubResource("AtlasTexture_ktxcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyl2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ort6r")
 }],
 "loop": 1,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgy4w"]
-size = Vector2(16, 16)
+size = Vector2(10, 20)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=80229509]
 script = ExtResource("1_nijli")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1663099822]
+position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_xgy4w")
-autoplay = "default"
-frame_progress = 0.32440287
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.79197764
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1058925353]
+position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_xgy4w")
+
+[node name="revolver" parent="." unique_id=1918409889 instance=ExtResource("3_85dba")]
+position = Vector2(7, -5)
+scale = Vector2(0.328125, 0.328125)

@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
+@onready var gun : AnimatedSprite2D = $revolver
 
 
 func _physics_process(delta: float):
@@ -20,3 +21,8 @@ func _physics_process(delta: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+
+
+func _unhandled_input(event: InputEvent):
+	if event.is_action_pressed("Shoot"):
+		gun.shoot()

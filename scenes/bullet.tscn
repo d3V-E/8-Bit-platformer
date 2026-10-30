@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://cdyiftv6i0fvj"]
 
 [ext_resource type="Texture2D" uid="uid://bkg1irpwicyb2" path="res://assets/bullet.png" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://d11k6bp4vc5h8" path="res://scripts/bullet.gd" id="1_y25gk"]
 
 [node name="bullet" type="Area2D" unique_id=1089814632]
+script = ExtResource("1_y25gk")
 
 [node name="bullet img" type="Sprite2D" parent="." unique_id=1083772299]
 texture = ExtResource("1_mkf8s")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1817324922]
 polygon = PackedVector2Array(-2, 0, -2, -1, 1, -1, 2, 0, 1, 1, -2, 1)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1243979294]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

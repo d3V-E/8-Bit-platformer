@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0jwkqtnex1d3"]
 
 [ext_resource type="Texture2D" uid="uid://bvri45a0ek7iy" path="res://assets/revolver.png" id="1_37vaw"]
+[ext_resource type="Script" uid="uid://bh7rpkt57riuo" path="res://scripts/revolver.gd" id="2_rlopr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlopr"]
 atlas = ExtResource("1_37vaw")
@@ -40,5 +41,7 @@ animations = [{
 
 [node name="revolver" type="AnimatedSprite2D" unique_id=1918409889]
 sprite_frames = SubResource("SpriteFrames_xgy4w")
+frame_progress = 0.36382014
+script = ExtResource("2_rlopr")
 
 [node name="bullet" type="Node2D" parent="." unique_id=1952672956]

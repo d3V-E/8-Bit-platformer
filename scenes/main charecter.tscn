@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://m47lgw6ylerj" path="res://scripts/main_charecter.gd" id="1_nijli"]
 [ext_resource type="Texture2D" uid="uid://b4msc6cpx588h" path="res://assets/Tile1.png" id="2_nijli"]
 [ext_resource type="PackedScene" uid="uid://0jwkqtnex1d3" path="res://scenes/revolver.tscn" id="3_85dba"]
+[ext_resource type="PackedScene" uid="uid://cdyiftv6i0fvj" path="res://scenes/bullet.tscn" id="4_ktxcm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85dba"]
 atlas = ExtResource("2_nijli")
@@ -60,3 +61,4 @@ shape = SubResource("RectangleShape2D_xgy4w")
 [node name="revolver" parent="." unique_id=1918409889 instance=ExtResource("3_85dba")]
 position = Vector2(7, -5)
 scale = Vector2(0.328125, 0.328125)
+bullet = ExtResource("4_ktxcm")

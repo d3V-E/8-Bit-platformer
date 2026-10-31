@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bvri45a0ek7iy" path="res://assets/revolver.png" id="1_37vaw"]
 [ext_resource type="Script" uid="uid://bh7rpkt57riuo" path="res://scripts/revolver.gd" id="2_rlopr"]
+[ext_resource type="PackedScene" uid="uid://cdyiftv6i0fvj" path="res://scenes/bullet.tscn" id="3_844u3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlopr"]
 atlas = ExtResource("1_37vaw")
@@ -34,7 +35,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uolhl")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"default",
 "speed": 10.0
 }]
@@ -43,5 +44,6 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_xgy4w")
 frame_progress = 0.36382014
 script = ExtResource("2_rlopr")
+bullet = ExtResource("3_844u3")
 
 [node name="bullet" type="Node2D" parent="." unique_id=1952672956]

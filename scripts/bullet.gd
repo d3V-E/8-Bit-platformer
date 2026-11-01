@@ -23,8 +23,8 @@ func right():
 
 
 func _on_body_entered(body: Node2D):
-	if body.has_method("recievedmg"):
-		body.recievedmg(damage)
+	if body.has_method("rdmg"):
+		body.rdmg(damage)
 	
 	queue_free()
 

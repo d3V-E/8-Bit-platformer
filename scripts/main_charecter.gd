@@ -5,6 +5,8 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 @onready var gun : AnimatedSprite2D = $revolver
 @onready var animsprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var lives = 3
+
 
 func _physics_process(delta: float):
 	if not is_on_floor():
@@ -43,3 +45,10 @@ func _physics_process(delta: float):
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("Shoot"):
 		gun.shoot()
+
+
+
+func takedmg():
+	lives -= 1
+	if lives <= 0:
+		pass

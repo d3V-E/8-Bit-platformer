@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c70k5rql511sp"]
+
+[ext_resource type="Texture2D" uid="uid://p3iohmgwnomy" path="res://assets/Zombie.png" id="1_1vlb3"]
+[ext_resource type="Script" uid="uid://c1rqucfgb3ke8" path="res://scripts/zombie.gd" id="1_httt1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei6bp"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_visbf"]
+size = Vector2(14, 14)
+
+[node name="Zombiecharecternode" type="CharacterBody2D" unique_id=508656333]
+script = ExtResource("1_httt1")
+
+[node name="zombie" type="Sprite2D" parent="." unique_id=432959337]
+texture = ExtResource("1_1vlb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=494044771]
+shape = SubResource("RectangleShape2D_ei6bp")
+
+[node name="Box" type="Area2D" parent="." unique_id=254570659]
+
+[node name="Collision Box" type="CollisionShape2D" parent="Box" unique_id=1516021392]
+shape = SubResource("RectangleShape2D_visbf")
+
+[connection signal="body_entered" from="Box" to="." method="_on_box_body_entered"]

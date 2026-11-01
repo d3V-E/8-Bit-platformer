@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://crek0utw62h1f"]
 
 [ext_resource type="Texture2D" uid="uid://dt8uavdcqkr6d" path="res://assets/Sheet.png" id="1_d2op2"]
+[ext_resource type="Script" uid="uid://pwtj8p28wjxx" path="res://scripts/main_game.gd" id="1_ipu61"]
 [ext_resource type="Texture2D" uid="uid://cot5uos85thwc" path="res://assets/1.png" id="2_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://c70k5rql511sp" path="res://scenes/zombie.tscn" id="2_ygxny"]
 [ext_resource type="PackedScene" uid="uid://yl7u2tlm7hrv" path="res://scenes/main charecter.tscn" id="4_0rdsr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygxny"]
@@ -54,6 +56,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ygxny")
 
 [node name="Main Game" type="Node2D" unique_id=1215730226]
+script = ExtResource("1_ipu61")
+enemy = ExtResource("2_ygxny")
 
 [node name="1" type="Sprite2D" parent="." unique_id=1238890310]
 position = Vector2(160, 90)
@@ -64,10 +68,24 @@ tile_set = SubResource("TileSet_xgy4w")
 format = 2
 layer_0/tile_data = PackedInt32Array(720896, 0, 0, 720897, 65536, 0, 720898, 131072, 0, 720899, 196608, 0, 720900, 0, 0, 720901, 65536, 0, 720902, 131072, 0, 720903, 196608, 0, 720904, 0, 0, 720905, 65536, 0, 720906, 131072, 0, 720907, 196608, 0, 720908, 0, 0, 720909, 65536, 0, 720910, 131072, 0, 720911, 196608, 0, 720912, 0, 0, 720913, 65536, 0, 720914, 131072, 0, 720915, 196608, 0, 720916, 0, 0, 720917, 65536, 0, 720918, 131072, 0, 720919, 196608, 0, 720920, 0, 0, 720921, 65536, 0, 720922, 131072, 0, 720923, 196608, 0, 786432, 0, 1, 786433, 65536, 1, 786434, 131072, 1, 786435, 196608, 1, 786436, 0, 1, 786437, 65536, 1, 786438, 131072, 1, 786439, 196608, 1, 786440, 0, 1, 786441, 65536, 1, 786442, 131072, 1, 786443, 196608, 1, 786444, 0, 1, 786445, 65536, 1, 786446, 131072, 1, 786447, 196608, 1, 786448, 0, 1, 786449, 65536, 1, 786450, 131072, 1, 786451, 196608, 1, 786452, 0, 1, 786453, 65536, 1, 786454, 131072, 1, 786455, 196608, 1, 786456, 0, 1, 786457, 65536, 1, 786458, 131072, 1, 786459, 196608, 1, 851968, 0, 2, 851969, 65536, 2, 851970, 131072, 2, 851971, 196608, 2, 851972, 0, 2, 851973, 65536, 2, 851974, 131072, 2, 851975, 196608, 2, 851976, 0, 2, 851977, 65536, 2, 851978, 131072, 2, 851979, 196608, 2, 851980, 0, 2, 851981, 65536, 2, 851982, 131072, 2, 851983, 196608, 2, 851984, 0, 2, 851985, 65536, 2, 851986, 131072, 2, 851987, 196608, 2, 851988, 0, 2, 851989, 65536, 2, 851990, 131072, 2, 851991, 196608, 2, 851992, 0, 2, 851993, 65536, 2, 851994, 131072, 2, 851995, 196608, 2, 786431, 0, 1, 720895, 0, 1, 655359, 0, 1, 589823, 0, 1, 524287, 0, 1, 458751, 0, 1, 393215, 0, 1, 851967, 0, 1, 327679, 0, 1, 262143, 0, 1, 196607, 0, 1, 131071, 0, 1, 65535, 0, 1, 917503, 0, 2, 983039, 0, 2, 917504, 65536, 2, 917505, 131072, 2, 917506, 196608, 2, 917507, 0, 2, 917508, 65536, 2, 917509, 131072, 2, 917510, 196608, 2, 917511, 0, 2, 917512, 65536, 2, 917513, 131072, 2, 917514, 196608, 2, 917515, 0, 2, 917516, 65536, 2, 917517, 131072, 2, 917518, 196608, 2, 917519, 0, 2, 917520, 65536, 2, 917521, 131072, 2, 917522, 196608, 2, 917523, 0, 2, 917524, 65536, 2, 917525, 131072, 2, 917526, 196608, 2, 917527, 0, 2, 917528, 0, 2, 917529, 65536, 2, 917530, 131072, 2, 917531, 196608, 2)
 
-[node name="Main charecter" parent="." unique_id=80229509 instance=ExtResource("4_0rdsr")]
-position = Vector2(14, 163)
+[node name="Player" parent="." unique_id=80229509 instance=ExtResource("4_0rdsr")]
+position = Vector2(146, 168)
 
-[node name="Camera2D" type="Camera2D" parent="Main charecter" unique_id=647324386]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=647324386]
 limit_bottom = 200
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="Spawners" type="Node2D" parent="." unique_id=585881164]
+
+[node name="Spawner1" type="Marker2D" parent="Spawners" unique_id=2042511437]
+position = Vector2(23, 143)
+
+[node name="Spawner2" type="Marker2D" parent="Spawners" unique_id=11987982]
+position = Vector2(58, 142)
+
+[node name="Timer" type="Timer" parent="." unique_id=2109772009]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

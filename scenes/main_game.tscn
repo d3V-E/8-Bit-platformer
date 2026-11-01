@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cot5uos85thwc" path="res://assets/1.png" id="2_0rdsr"]
 [ext_resource type="PackedScene" uid="uid://c70k5rql511sp" path="res://scenes/zombie.tscn" id="2_ygxny"]
 [ext_resource type="PackedScene" uid="uid://yl7u2tlm7hrv" path="res://scenes/main charecter.tscn" id="4_0rdsr"]
+[ext_resource type="Texture2D" uid="uid://ch3uq32v646ua" path="res://assets/Visual.png" id="6_ygxny"]
+[ext_resource type="Texture2D" uid="uid://cbxwpfpjlx3jf" path="res://assets/2.png" id="7_2l77h"]
+[ext_resource type="Texture2D" uid="uid://rhre83opx02o" path="res://assets/3.png" id="8_nqdth"]
+[ext_resource type="Texture2D" uid="uid://rr8715p87bue" path="res://assets/HP.png" id="9_5cypo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygxny"]
 texture = ExtResource("1_d2op2")
@@ -68,13 +72,17 @@ tile_set = SubResource("TileSet_xgy4w")
 format = 2
 layer_0/tile_data = PackedInt32Array(720896, 0, 0, 720897, 65536, 0, 720898, 131072, 0, 720899, 196608, 0, 720900, 0, 0, 720901, 65536, 0, 720902, 131072, 0, 720903, 196608, 0, 720904, 0, 0, 720905, 65536, 0, 720906, 131072, 0, 720907, 196608, 0, 720908, 0, 0, 720909, 65536, 0, 720910, 131072, 0, 720911, 196608, 0, 720912, 0, 0, 720913, 65536, 0, 720914, 131072, 0, 720915, 196608, 0, 720916, 0, 0, 720917, 65536, 0, 720918, 131072, 0, 720919, 196608, 0, 720920, 0, 0, 720921, 65536, 0, 720922, 131072, 0, 720923, 196608, 0, 786432, 0, 1, 786433, 65536, 1, 786434, 131072, 1, 786435, 196608, 1, 786436, 0, 1, 786437, 65536, 1, 786438, 131072, 1, 786439, 196608, 1, 786440, 0, 1, 786441, 65536, 1, 786442, 131072, 1, 786443, 196608, 1, 786444, 0, 1, 786445, 65536, 1, 786446, 131072, 1, 786447, 196608, 1, 786448, 0, 1, 786449, 65536, 1, 786450, 131072, 1, 786451, 196608, 1, 786452, 0, 1, 786453, 65536, 1, 786454, 131072, 1, 786455, 196608, 1, 786456, 0, 1, 786457, 65536, 1, 786458, 131072, 1, 786459, 196608, 1, 851968, 0, 2, 851969, 65536, 2, 851970, 131072, 2, 851971, 196608, 2, 851972, 0, 2, 851973, 65536, 2, 851974, 131072, 2, 851975, 196608, 2, 851976, 0, 2, 851977, 65536, 2, 851978, 131072, 2, 851979, 196608, 2, 851980, 0, 2, 851981, 65536, 2, 851982, 131072, 2, 851983, 196608, 2, 851984, 0, 2, 851985, 65536, 2, 851986, 131072, 2, 851987, 196608, 2, 851988, 0, 2, 851989, 65536, 2, 851990, 131072, 2, 851991, 196608, 2, 851992, 0, 2, 851993, 65536, 2, 851994, 131072, 2, 851995, 196608, 2, 786431, 0, 1, 720895, 0, 1, 655359, 0, 1, 589823, 0, 1, 524287, 0, 1, 458751, 0, 1, 393215, 0, 1, 851967, 0, 1, 327679, 0, 1, 262143, 0, 1, 196607, 0, 1, 131071, 0, 1, 65535, 0, 1, 917503, 0, 2, 983039, 0, 2, 917504, 65536, 2, 917505, 131072, 2, 917506, 196608, 2, 917507, 0, 2, 917508, 65536, 2, 917509, 131072, 2, 917510, 196608, 2, 917511, 0, 2, 917512, 65536, 2, 917513, 131072, 2, 917514, 196608, 2, 917515, 0, 2, 917516, 65536, 2, 917517, 131072, 2, 917518, 196608, 2, 917519, 0, 2, 917520, 65536, 2, 917521, 131072, 2, 917522, 196608, 2, 917523, 0, 2, 917524, 65536, 2, 917525, 131072, 2, 917526, 196608, 2, 917527, 0, 2, 917528, 0, 2, 917529, 65536, 2, 917530, 131072, 2, 917531, 196608, 2)
 
-[node name="Player" parent="." unique_id=80229509 instance=ExtResource("4_0rdsr")]
+[node name="Player" parent="." unique_id=80229509 groups=["Player"] instance=ExtResource("4_0rdsr")]
 position = Vector2(146, 168)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=647324386]
 limit_bottom = 200
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="Lives Upd" type="Timer" parent="Player" unique_id=325509246]
+wait_time = 0.1
+autostart = true
 
 [node name="Spawners" type="Node2D" parent="." unique_id=585881164]
 
@@ -88,4 +96,38 @@ position = Vector2(58, 142)
 wait_time = 5.0
 autostart = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=994165942]
+
+[node name="Visual" type="Sprite2D" parent="CanvasLayer" unique_id=1262949734]
+position = Vector2(49.000008, 159)
+scale = Vector2(0.80000013, 0.8000001)
+texture = ExtResource("6_ygxny")
+
+[node name="alive" type="Sprite2D" parent="CanvasLayer/Visual" unique_id=438587864]
+position = Vector2(-34.999992, -1.25)
+scale = Vector2(1.2499999, 1.2499999)
+texture = ExtResource("7_2l77h")
+
+[node name="dmg" type="Sprite2D" parent="CanvasLayer/Visual" unique_id=1193989194]
+visible = false
+position = Vector2(-35.000004, -1.250004)
+scale = Vector2(1.267578, 1.267578)
+texture = ExtResource("8_nqdth")
+
+[node name="Hp" type="Sprite2D" parent="CanvasLayer/Visual" unique_id=1377442367]
+position = Vector2(-8.225441e-06, -12.500002)
+scale = Vector2(0.5078124, 0.5078124)
+texture = ExtResource("9_5cypo")
+
+[node name="Hp2" type="Sprite2D" parent="CanvasLayer/Visual" unique_id=1981994606]
+position = Vector2(18.749989, -12.5)
+scale = Vector2(0.5195616, 0.5195615)
+texture = ExtResource("9_5cypo")
+
+[node name="Hp3" type="Sprite2D" parent="CanvasLayer/Visual" unique_id=1098446473]
+position = Vector2(37.49999, -12.5)
+scale = Vector2(0.5255973, 0.52559716)
+texture = ExtResource("9_5cypo")
+
+[connection signal="timeout" from="Player/Lives Upd" to="." method="_on_lives_upd_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

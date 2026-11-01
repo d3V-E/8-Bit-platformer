@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
-
+var identif = true
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 @onready var gun : AnimatedSprite2D = $revolver
 @onready var animsprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var lives = 3
 
+
+func _ready():
+	add_to_group("Player")
 
 func _physics_process(delta: float):
 	if not is_on_floor():
@@ -50,5 +53,4 @@ func _unhandled_input(event: InputEvent):
 
 func takedmg():
 	lives -= 1
-	if lives <= 0:
-		pass
+	print(lives)

@@ -4,13 +4,15 @@ extends CharacterBody2D
 @export var speed: float = 50
 @export var hp:int = 2
 @onready var sprite = $zombie
-
+var dmgc = 0
 
 
 func _physics_process(delta: float):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	var player = get_parent().get_node_or_null("Player")
+	if dmgc > 0:
+		dmgc -= delta
 	if player.global_position.x > global_position.x:
 		velocity.x = speed
 		sprite.flip_h = true
@@ -18,9 +20,12 @@ func _physics_process(delta: float):
 		velocity.x = -speed
 		sprite.flip_h = false
 	var distance = global_position.distance_to(player.global_position)
-	if distance < 16:
+	if distance < 16 and dmgc <= 0 :
 		player.takedmg()
 		print("y")
+		var main = get_tree().current_scene
+		main.dmganim()
+		dmgc = 2
 	move_and_slide()
 
 func rdmg(amnt):

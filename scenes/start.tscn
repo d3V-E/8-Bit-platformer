@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://boj8pb8576i22"]
+
+[ext_resource type="Script" uid="uid://bfj5qfcbf2jhf" path="res://scenes/start.gd" id="1_0auqf"]
+[ext_resource type="Texture2D" uid="uid://cot5uos85thwc" path="res://assets/1.png" id="1_jaeev"]
+[ext_resource type="FontFile" uid="uid://b8o5a54v76hm1" path="res://assets/Quantico-Bold.ttf" id="2_kdmts"]
+[ext_resource type="Texture2D" uid="uid://bvri45a0ek7iy" path="res://assets/revolver.png" id="3_0auqf"]
+[ext_resource type="Texture2D" uid="uid://b3nymehs4ktpq" path="res://assets/1 (2).png" id="4_y16t7"]
+
+[sub_resource type="Animation" id="Animation_0auqf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(57, -51)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../start:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(112, 190)]
+}
+
+[sub_resource type="Animation" id="Animation_y16t7"]
+resource_name = "init"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(57, -51), Vector2(57, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../start:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(112, 190), Vector2(112, 110)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ge6i"]
+_data = {
+&"RESET": SubResource("Animation_0auqf"),
+&"init": SubResource("Animation_y16t7")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ge6i"]
+atlas = ExtResource("3_0auqf")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8itgj"]
+atlas = ExtResource("3_0auqf")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn317"]
+atlas = ExtResource("3_0auqf")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8nf6"]
+atlas = ExtResource("3_0auqf")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ei6bp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ge6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8itgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn317")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8nf6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="start" type="Node2D" unique_id=2131531824]
+script = ExtResource("1_0auqf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1593385090]
+
+[node name="1" type="Sprite2D" parent="CanvasLayer" unique_id=2117343907]
+position = Vector2(160, 90)
+texture = ExtResource("1_jaeev")
+
+[node name="header" type="RichTextLabel" parent="CanvasLayer" unique_id=1757142746]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.0
+offset_top = -51.0
+offset_right = 108.0
+offset_bottom = -2.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_kdmts")
+theme_override_font_sizes/normal_font_size = 23
+text = "ANTIQUE SHOOTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/header" unique_id=2079707199]
+libraries/ = SubResource("AnimationLibrary_4ge6i")
+
+[node name="revolver" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=768087208]
+position = Vector2(161, 87)
+rotation = -0.6439087
+scale = Vector2(2.1875, 2.1875)
+sprite_frames = SubResource("SpriteFrames_ei6bp")
+autoplay = "default"
+frame_progress = 0.9222115
+
+[node name="start" type="TextureButton" parent="CanvasLayer" unique_id=165428149]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 100.0
+offset_right = 48.0
+offset_bottom = 132.0004
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_y16t7")
+
+[connection signal="button_down" from="CanvasLayer/start" to="." method="_on_start_button_down"]
+[connection signal="button_up" from="CanvasLayer/start" to="." method="_on_start_button_up"]
